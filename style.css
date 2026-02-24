@@ -12,6 +12,7 @@ body {
     background: #000;
 }
 
+/* Background Video */
 #bg-video {
     position: fixed;
     right: 0;
@@ -22,6 +23,7 @@ body {
     filter: brightness(35%);
 }
 
+/* Dark overlay */
 .overlay {
     position: fixed;
     top: 0;
@@ -31,6 +33,7 @@ body {
     background: rgba(0, 0, 0, 0.4);
 }
 
+/* Center content */
 .container {
     position: absolute;
     top: 50%;
@@ -39,6 +42,7 @@ body {
     text-align: center;
 }
 
+/* Title */
 .title {
     color: white;
     font-size: 4rem;
@@ -47,6 +51,7 @@ body {
     font-weight: 600;
 }
 
+/* Loading Bar Container */
 .loading-bar {
     width: 500px;
     height: 15px;
@@ -56,10 +61,12 @@ body {
     margin: 0 auto;
 }
 
+/* make the loading-bar a positioned container so child can use left/top */
 .loading-bar {
     position: relative;
 }
 
+/* Progress (animated gradient, width controlled by JS) */
 .progress {
     width: 0%; /* JS mettra la valeur réelle */
     height: 100%;
@@ -69,6 +76,7 @@ body {
     border-radius: 20px;
 }
 
+/* JS expects an element with class `progressBar` — make it absolute so `left` works */
 .progressBar {
     position: absolute;
     left: 0;
@@ -79,6 +87,7 @@ body {
     transition: width 280ms ease;
 }
 
+/* Gradient animation */
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
