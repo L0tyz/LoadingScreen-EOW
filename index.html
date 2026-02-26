@@ -17,12 +17,47 @@
         <h1 class="title">END OF WATCH</h1>
 
         <div class="loading-bar">
-            <div class="progress progressBar"></div>
+            <div class="progressBar"></div>
         </div>
+        <span class="loading-label">CHARGEMENT</span>
     </div>
 
-    <audio id="music" src="audio/music.mp3" autoplay loop></audio>
+    <!-- Music Player -->
+    <div class="music-player">
 
+        <!-- Header : pochette + titre + auteur + toggle playlist -->
+        <div class="player-header" id="playerToggle">
+            <div class="player-cover no-cover" id="playerCover">
+                <span class="cover-placeholder">&#9834;</span>
+            </div>
+            <div class="player-meta">
+                <span class="player-track-name" id="trackName">Chargement…</span>
+                <span class="player-author" id="trackAuthor"></span>
+            </div>
+            <span class="player-arrow" id="playerArrow">&#9660;</span>
+        </div>
+
+        <!-- Playlist (cachée par défaut) -->
+        <div class="player-body" id="playerBody">
+            <div class="track-list" id="trackList">
+                <!-- Rempli dynamiquement depuis songs.js -->
+            </div>
+        </div>
+
+        <!-- Contrôles -->
+        <div class="player-controls">
+            <button id="playPauseBtn" class="ctrl-btn" title="Lecture / Pause">&#9646;&#9646;</button>
+            <div class="volume-wrap">
+                <span class="vol-icon" id="volIcon">&#9834;</span>
+                <input type="range" id="volumeSlider" min="0" max="100" value="50">
+            </div>
+        </div>
+
+    </div>
+
+    <audio id="music" autoplay></audio>
+
+    <script src="songs.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
