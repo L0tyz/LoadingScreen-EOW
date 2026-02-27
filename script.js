@@ -22,10 +22,6 @@ function setProgress(ratio) {
     document.querySelector('.progressBar').style.width = (ratio * 100) + '%';
 }
 
-window.addEventListener('message', function (e) {
-    (handlers[e.data.eventName] || function () {})(e.data);
-});
-
 // ── Lecteur musical ───────────────────────────────────────────────────────────
 var currentIndex = 0;
 
@@ -146,4 +142,21 @@ audio.addEventListener('ended', function () {
 
 // ── Initialisation ────────────────────────────────────────────────────────────
 buildTrackList();
-selectTrack(Math.floor(Math.random() * SONGS.length));
+
+var musicStarted = false;
+
+function startMusic() {
+    if (!musicStarted) {
+        musicStarted = true;
+        selectTrack(Math.floor(Math.random() * SONGS.length));
+    }
+}
+
+// FiveM's CEF blocks autoplay until a message is received from the game
+window.addEventListener('message', function (e) {
+    (handlers[e.data.eventName] || function () {})(e.data);
+    startMusic();
+});
+
+// Fallback: if no message arrives quickly, try after a short delay
+setTimeout(startMusic, 500);

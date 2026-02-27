@@ -6,6 +6,7 @@ description 'End of Watch - Loading Screen'
 version '1.0.0'
 
 loadscreen 'index.html'
+loadscreen_cursor 'yes'
 
 files {
     'index.html',
@@ -14,8 +15,8 @@ files {
     'script.js',
     'songs.js',
     'video/background.mp4',
-    'audio/music.mp3',
-    'audio/covers/*'    -- images de pochette (jpg, png, webp...)
+    'audio/*.mp3',
+    'cover/*.png',
 }
 
 --loadscreen_manual_shutdown 'yes'
